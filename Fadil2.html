@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macam-Macam Warna untuk Coding - By ItsFallzzz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .color-box {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .color-box:hover {
+      transform: translateY(-5px);
+    }
+    .color-swatch {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 0 3px rgba(0,0,0,0.7);
+      font-weight: bold;
+    }
+    .color-info {
+      padding: 0.7rem;
+      background: white;
+      font-size: 0.9rem;
+    }
+    .color-name {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    .color-hex {
+      color: #555;
+      font-family: monospace;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      background-color: #2c3e50;
+      color: white;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 Macam-Macam Warna untuk Coding</h1>
+    <p>Lebih dari 100 Kode Warna Hex - By ItsFallzzz</p>
+  </header>
+
+  <div class="container">
+    <div class="color-grid" id="colorGrid">
+      <!-- Warna akan diisi oleh JavaScript -->
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 By ItsFallzzz | Kode Warna untuk Desain & Coding Lebih Menarik
+  </footer>
+
+  <script>
+    // Daftar warna dengan nama dan kode hex
+    const colors = [
+      { name: "Merah", hex: "#FF0000" },
+      { name: "Hijau", hex: "#00FF00" },
+      { name: "Biru", hex: "#0000FF" },
+      { name: "Kuning", hex: "#FFFF00" },
+      { name: "Ungu", hex: "#800080" },
+      { name: "Cyan", hex: "#00FFFF" },
+      { name: "Magenta", hex: "#FF00FF" },
+      { name: "Oranye", hex: "#FFA500" },
+      { name: "Pink", hex: "#FFC0CB" },
+      { name: "Coklat", hex: "#A52A2A" },
+      { name: "Abu-abu", hex: "#808080" },
+      { name: "Hitam", hex: "#000000" },
+      { name: "Putih", hex: "#FFFFFF" },
+      { name: "Emas", hex: "#FFD700" },
+      { name: "Perak", hex: "#C0C0C0" },
+      { name: "Maroon", hex: "#800000" },
+      { name: "Olive", hex: "#808000" },
+      { name: "Hijau Tua", hex: "#008000" },
+      { name: "Navy", hex: "#000080" },
+      { name: "Teal", hex: "#008080" },
+      { name: "Purple", hex: "#800080" },
+      { name: "Fuchsia", hex: "#FF00FF" },
+      { name: "Lime", hex: "#00FF00" },
+      { name: "Aqua", hex: "#00FFFF" },
+      { name: "Tan", hex: "#D2B48C" },
+      { name: "Salmon", hex: "#FA8072" },
+      { name: "Krem", hex: "#FFFDD0" },
+      { name: "Khaki", hex: "#F0E68C" },
+      { name: "Plum", hex: "#DDA0DD" },
+      { name: "Beige", hex: "#F5F5DC" },
+      { name: "Wheat", hex: "#F5DEB3" },
+      { name: "Burlywood", hex: "#DEB887" },
+      { name: "Rosy Brown", hex: "#BC8F8F" },
+      { name: "Sandy Brown", hex: "#F4A460" },
+      { name: "Chocolate", hex: "#D2691E" },
+      { name: "Firebrick", hex: "#B22222" },
+      { name: "Red", hex: "#DC143C" },
+      { name: "Deep Pink", hex: "#FF1493" },
+      { name: "Hot Pink", hex: "#FF69B4" },
+      { name: "Pale Violet Red", hex: "#DB7093" },
+      { name: "Orchid", hex: "#DA70D6" },
+      { name: "Violet", hex: "#EE82EE" },
+      { name: "Magenta", hex: "#FF00FF" },
+      { name: "Medium Violet Red", hex: "#C71585" },
+      { name: "Crimson", hex: "#DC143C" },
+      { name: "Tomato", hex: "#FF6347" },
+      { name: "Coral", hex: "#FF7F50" },
+      { name: "Indian Red", hex: "#CD5C5C" },
+      { name: "Light Coral", hex: "#F08080" },
+      { name: "Dark Salmon", hex: "#E9967A" },
+      { name: "Light Salmon", hex: "#FFA07A" },
+      { name: "Dark Orange", hex: "#FF8C00" },
+      { name: "Orange Red", hex: "#FF4500" },
+      { name: "Light Yellow", hex: "#FFFFE0" },
+      { name: "Lemon Chiffon", hex: "#FFFACD" },
+      { name: "Light Goldenrod Yellow", hex: "#FAFAD2" },
+      { name: "Papaya Whip", hex: "#FFEFD5" },
+      { name: "Moccasin", hex: "#FFE4B5" },
+      { name: "Peach Puff", hex: "#FFDAB9" },
+      { name: "Pale Goldenrod", hex: "#EEE8AA" },
+      { name: "Khaki", hex: "#F0E68C" },
+      { name: "Dark Khaki", hex: "#BDB76B" },
+      { name: "Yellow Green", hex: "#9ACD32" },
+      { name: "Lime Green", hex: "#32CD32" },
+      { name: "Green Yellow", hex: "#ADFF2F" },
+      { name: "Chartreuse", hex: "#7FFF00" },
+      { name: "Lawn Green", hex: "#7CFC00" },
+      { name: "Olive Drab", hex: "#6B8E23" },
+      { name: "Dark Olive Green", hex: "#556B2F" },
+      { name: "Dark Green", hex: "#013220" },
+      { name: "Forest Green", hex: "#228B22" },
+      { name: "Sea Green", hex: "#2E8B57" },
+      { name: "Medium Sea Green", hex: "#3CB371" },
+      { name: "Light Sea Green", hex: "#20B2AA" },
+      { name: "Dark Cyan", hex: "#008B8B" },
+      { name: "Teal", hex: "#008080" },
+      { name: "Aqua", hex: "#00FFFF" },
+      { name: "Light Cyan", hex: "#E0FFFF" },
+      { name: "Dark Turquoise", hex: "#00CED1" },
+      { name: "Turquoise", hex: "#40E0D0" },
+      { name: "Medium Turquoise", hex: "#48D1CC" },
+      { name: "Pale Turquoise", hex: "#AFEEEE" },
+      { name: "Cadet Blue", hex: "#5F9EA0" },
+      { name: "Steel Blue", hex: "#4682B4" },
+      { name: "Light Steel Blue", hex: "#B0C4DE" },
+      { name: "Light Blue", hex: "#ADD8E6" },
+      { name: "Powder Blue", hex: "#B0E0E6" },
+      { name: "Deep Sky Blue", hex: "#00BFFF" },
+      { name: "Sky Blue", hex: "#87CEEB" },
+      { name: "Light Sky Blue", hex: "#87CEFA" },
+      { name: "Midnight Blue", hex: "#191970" },
+      { name: "Navy", hex: "#000080" },
+      { name: "Dark Blue", hex: "#00008B" },
+      { name: "Medium Blue", hex: "#0000CD" },
+      { name: "Royal Blue", hex: "#4169E1" },
+      { name: "Blue", hex: "#0000FF" },
+      { name: "Dodger Blue", hex: "#1E90FF" },
+      { name: "Cornflower Blue", hex: "#6495ED" },
+      { name: "Medium Slate Blue", hex: "#7B68EE" },
+      { name: "Slate Blue", hex: "#6A5ACD" },
+      { name: "Dark Slate Blue", hex: "#483D8B" },
+      { name: "Indigo", hex: "#4B0082" },
+      { name: "Purple", hex: "#800080" },
+      { name: "Dark Magenta", hex: "#8B008B" },
+      { name: "Medium Purple", hex: "#9370DB" },
+      { name: "Thistle", hex: "#D8BFD8" },
+      { name: "Plum", hex: "#DDA0DD" },
+      { name: "Violet", hex: "#EE82EE" },
+      { name: "Orchid", hex: "#DA70D6" },
+      { name: "Fuchsia", hex: "#FF00FF" },
+      { name: "Magenta", hex: "#FF00FF" },
+      { name: "Medium Orchid", hex: "#BA55D3" }
+    ];
+
+    // Fungsi untuk menampilkan warna
+    const colorGrid = document.getElementById("colorGrid");
+    colors.forEach(color => {
+      const box = document.createElement("div");
+      box.className = "color-box";
+      box.innerHTML = `
+        <div class="color-swatch" style="background-color: ${color.hex};">
+          ${color.hex}
+        </div>
+        <div class="color-info">
+          <div class="color-name">${color.name}</div>
+          <div class="color-hex">${color.hex}</div>
+        </div>
+      `;
+      colorGrid.appendChild(box);
+    });
+  </script>
+</body>
+</html>
